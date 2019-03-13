@@ -4,10 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
-/public/oculus.mp4
+/public/*.mp4
+/public/*.wmv
 # testing
 /coverage
-
+/src/simplestents_images
 # production
 /build
 

@@ -7,9 +7,13 @@ import iScroll from 'iscroll'
 import ReactPlayer from 'react-player'
 
 const setStyles = (wrapperEl, videoEl, playbackRate) => {
-    wrapperEl.style.marginTop = 0
-    wrapperEl.style.marginBottom = 0
-  }
+  wrapperEl.style.marginTop = `calc(180% - ${Math.floor(videoEl.duration) *
+    playbackRate +
+    'px'})`
+  wrapperEl.style.marginBottom = `calc(180% - ${Math.floor(videoEl.duration) *
+    playbackRate +
+    'px'})`
+}
   
 
 
@@ -33,12 +37,11 @@ class Home extends Component {
 
     video() {
         return (
-            <ReactIScroll iScroll={iScroll}>
           <VideoScroll
             onLoad={props =>
               setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
             }
-            playbackRate={10}
+            playbackRate={15}
             style={{ position: 'sticky' }}
           >
             <video
@@ -48,19 +51,30 @@ class Home extends Component {
               style={{ width: '100%', objectFit: 'contain' }}
               playsInline
             >
-              <source type="video/mp4" src="./oculus.mp4" />
+              <source type="video/mp4" src="./stent.mp4" />
             </video>
           </VideoScroll>
-          </ReactIScroll>
         )
       }
     render() {
+      const leftstyle = {
+        float: "left",
+        width: "50%"
+      }
+      const rightstyle = {
+        float: "left",
+        width: "50%"
+      }
     return (
         
         <Fragment>
             
             <label>Simple Stents {this.state.scrollAmount}</label>
-            {this.video()}
+            <div>
+            <div style={leftstyle}>{this.video()}</div>
+            <div style={rightstyle}>I'm on the right</div>
+          </div>
+            
 
             <IconButton><ExpandIcon/></IconButton>
         </Fragment>
