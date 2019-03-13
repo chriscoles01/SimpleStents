@@ -4,6 +4,8 @@ import IconButton from '@material-ui/core/IconButton';
 import ExpandIcon from '@material-ui/icons/ArrowDropDownCircle'
 import ReactIScroll from 'react-iscroll'
 import iScroll from 'iscroll'
+import ReactPlayer from 'react-player'
+
 const setStyles = (wrapperEl, videoEl, playbackRate) => {
     wrapperEl.style.marginTop = 0
     wrapperEl.style.marginBottom = 0
