@@ -32,54 +32,6 @@ class Home extends Component {
         }
       }
   
-    
-
-    sticky() {
-        return (
-          
-          <Stickyroll pages={"1"}>
-          
-          {({page, pageIndex, pages, progress}) => {
-              return (
-                <label>{progress}</label>
-
-                // <label>vdf {() => this.rp.seekTo(parseFloat(progress))}</label>
-
-                
-                
-              );
-          }}
-        </Stickyroll>
-        )
-      }
-      seektomid() {
-        
-      }
-      youtube(){
-        return (
-          <Fragment>
-            <ReactPlayer
-              ref={rp => this.rp = rp}
-              className='react-player'
-              width='100%'
-              height='100%'
-              url={this.state.url}
-              pip={this.state.pip}
-              playing={this.state.playing}
-              controls={this.state.controls}
-              light={this.state.light}
-              loop={this.state.loop}
-              playbackRate={this.state.playbackRate}
-              volume={this.state.volume}
-              muted={this.state.muted}
-              onReady={() => console.log('onReady')}
-              onStart={() => console.log('onStart')}
-              onSeek={e => console.log('onSeek', e)}
-            />
-           
-            </Fragment>
-        );
-      }
       ref = player => {
         this.player = player
       }
