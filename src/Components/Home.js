@@ -40,7 +40,7 @@ class Home extends Component {
       const leftstyle = {
         float: "left",
         width: "50%",
-        height: "1200px"
+
       }
       const rightstyle = {
         float: "left",
