@@ -21,7 +21,18 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          
+          url: "https://www.youtube.com/watch?v=u5VwtZThygs",
+          pip: false,
+          playing: false,
+          controls: false,
+          light: false,
+          volume: 0,
+          muted: true,
+          played: 0,
+          loaded: 0,
+          duration: 0,
+          playbackRate: 1.0,
+          loop: false
          };
        }
        onRefresh(iScrollInstance) {
@@ -98,7 +109,7 @@ class Home extends Component {
         
         <Fragment>
             
-            
+            <label>Simple Stents {this.state.scrollAmount}</label>
             <div>
             <Stickyroll pages={"1"}>
           
@@ -106,26 +117,27 @@ class Home extends Component {
               return (
             <Fragment>
             <div style={leftstyle}>
-            <VideoScroll
-            onLoad={props =>
-              setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
-            }
-            playbackRate={15}
-            style={{ position: 'sticky' }}
-          >
-            <video
-              tabIndex="0"
-              autobuffer="autobuffer"
-              preload="preload"
-              style={{ width: '100%', objectFit: 'contain' }}
-              playsInline
-            >
-              <source type="video/mp4" src="./stent.mp4" />
-            </video>
-          </VideoScroll>
+            <ReactPlayer
+              ref={rp => this.rp = rp}
+              className='react-player'
+              width='100%'
+              height='100%'
+              url={this.state.url}
+              pip={this.state.pip}
+              playing={this.state.playing}
+              controls={this.state.controls}
+              light={this.state.light}
+              loop={this.state.loop}
+              playbackRate={this.state.playbackRate}
+              volume={this.state.volume}
+              muted={this.state.muted}
+              onReady={() => console.log('onReady')}
+              onStart={() => console.log('onStart')}
+              onSeek={e => console.log('onSeek', e)}
+            />
             </div>
             <div style={rightstyle}>
-            <label>{progress}</label>
+            <label>{progress} {progress == 0 ? null : this.rp.seekTo(parseFloat(progress))}</label>
             </div>
             </Fragment>
 
