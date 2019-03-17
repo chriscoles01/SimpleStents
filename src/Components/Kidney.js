@@ -3,8 +3,8 @@ import { VideoScroll } from 'react-video-scroll'
 import IconButton from '@material-ui/core/IconButton';
 import ExpandIcon from '@material-ui/icons/ArrowDropDownCircle'
 import {Stickyroll} from '@stickyroll/stickyroll';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
+
+import Kidneytones from '../simplestents_images/kidneystones.jpg'
 // const setStyles = (wrapperEl, videoEl, playbackRate) => {
 //   wrapperEl.style.marginTop = `calc(180% - ${Math.floor(videoEl.duration) *
 //     playbackRate +
@@ -21,7 +21,7 @@ const setStyles = (wrapperEl, videoEl, playbackRate) => {
   
 
 
-class Home extends Component {
+class Kidney extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -39,33 +39,30 @@ class Home extends Component {
       ref = player => {
         this.player = player
       }
-
+    // getImage = progress =>{
+    //   if progress < 
+    // }
     render() {
       const leftstyle = {
         float: "left",
         width: "50%",
       }
       const rightstyle = {
+        marginTop:"55px",
         float: "right",
         width: "50%"
       }
     return (
         
         <Fragment>
-            
-            
-            <div>
+            <div style={leftstyle}>
             <Stickyroll pages={"1"}>
           
           {({page, pageIndex, pages, progress}) => {
               return (
             <Fragment>
-              <AppBar position="Static">
-              <Button  color="inherit">Home</Button>
-              <Button color="inherit">Kidney</Button>
-              <Button color="inherit">Bladder</Button>
-              </AppBar>
-            <div style={leftstyle}>
+              
+            <div     style={{paddingTop:"55px"}}>
             <VideoScroll
             onLoad={props =>
               setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
@@ -84,12 +81,13 @@ class Home extends Component {
             </video>
           </VideoScroll>
             </div>
-            <div style={rightstyle}>
+            {/* <div style={rightstyle}>
             <label>Simple Stents </label>
 
             <label>{progress}</label>
-            </div>
-            <IconButton><ExpandIcon/></IconButton>
+            
+           
+            </div> */}
             </Fragment>
 
                 
@@ -102,12 +100,18 @@ class Home extends Component {
         </Stickyroll>
         
           </div>
+          <div style={rightstyle}>
             
+          <img style={{  width: '100%', height: '100%', objectFit: 'contain' }} src={Kidneytones} alt="" />
+           
+            </div>
+          
 
 
         </Fragment>
+        
     );
   }
 }
 
-export default Home;
+export default Kidney;
