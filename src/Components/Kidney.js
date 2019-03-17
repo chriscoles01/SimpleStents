@@ -3,6 +3,12 @@ import { VideoScroll } from 'react-video-scroll'
 import IconButton from '@material-ui/core/IconButton';
 import ExpandIcon from '@material-ui/icons/ArrowDropDownCircle'
 import {Stickyroll} from '@stickyroll/stickyroll';
+import first from '../simplestents_images/first.png'
+import second from '../simplestents_images/second.png'
+import third from '../simplestents_images/third.png'
+import fourth from '../simplestents_images/fourth.png'
+import fifth from '../simplestents_images/fifth.png'
+
 
 import Kidneytones from '../simplestents_images/kidneystones.jpg'
 // const setStyles = (wrapperEl, videoEl, playbackRate) => {
@@ -25,7 +31,7 @@ class Kidney extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          
+      
          };
        }
        onRefresh(iScrollInstance) {
@@ -39,11 +45,23 @@ class Kidney extends Component {
       ref = player => {
         this.player = player
       }
-    // getImage = progress =>{
-    //   if progress < 
-    // }
+    getImage = progress =>{
+      if (progress < 1/5) {
+        return first
+      } else if(progress < 2/5){
+        return second
+      } else if(progress < 3/5){
+        return third
+      }
+      else if(progress < 4/5){
+        return fourth
+      }else if(progress <= 1.0){
+        return fifth
+      }
+    }
     render() {
       const leftstyle = {
+        paddingTop:"55px",
         float: "left",
         width: "50%",
       }
@@ -55,14 +73,14 @@ class Kidney extends Component {
     return (
         
         <Fragment>
-            <div style={leftstyle}>
+            
             <Stickyroll pages={"1"}>
           
           {({page, pageIndex, pages, progress}) => {
               return (
             <Fragment>
               
-            <div     style={{paddingTop:"55px"}}>
+              <div style={leftstyle}>
             <VideoScroll
             onLoad={props =>
               setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
@@ -81,31 +99,21 @@ class Kidney extends Component {
             </video>
           </VideoScroll>
             </div>
-            {/* <div style={rightstyle}>
-            <label>Simple Stents </label>
-
-            <label>{progress}</label>
+            <div style={rightstyle}>
             
-           
-            </div> */}
-            </Fragment>
-
-                
-
-                
+            <img style={{  width: '100%', height: '100%', objectFit: 'contain' }} src={this.getImage(progress)} alt="" />
+             
+              </div>
+            
+            </Fragment> 
                 
               );
           }}
           
         </Stickyroll>
         
-          </div>
-          <div style={rightstyle}>
-            
-          <img style={{  width: '100%', height: '100%', objectFit: 'contain' }} src={Kidneytones} alt="" />
-           
-            </div>
-          
+        
+         
 
 
         </Fragment>
