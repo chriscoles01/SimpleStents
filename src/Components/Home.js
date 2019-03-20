@@ -1,6 +1,19 @@
 import React, { Component, Fragment } from 'react';
-
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+import ali from '../simplestents_images/ali.jpeg'
+import dario from '../simplestents_images/Dario.jpg'
+import FormLabel from '@material-ui/core/FormLabel';
+import Grid from '@material-ui/core/Grid';
+import GridListTile from '@material-ui/core/GridListTile';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import { FormGroup } from '@material-ui/core';
 
 class Home extends Component {
     constructor(props) {
@@ -13,21 +26,102 @@ class Home extends Component {
     render() {
       const leftstyle = {
         float: "left",
-        width: "50%",
       }
       const rightstyle = {
         marginTop:"55px",
         float: "right",
         width: "50%"
       }
+      const pageStyle = {
+        paddingTop:"100px",
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+      }
+      const styles = {
+        card: {
+          width: "100%",
+          height: "100%"
+        },
+        media: {
+          height: 140,
+        },
+        gridList: {
+            paddingTop:"5%",
+            width:"50%"
+        }
+      }
+      
     return (
         
-        <Fragment>
+        <Fragment >
             
+            <div style={pageStyle}>
+            <FormLabel >
+            Founded by Bioengineering PhD student Ali Mosayyebi, University of Southampton spin-out Simple Stents is pioneering an innovative stent design that delivers significant healthcare improvements to patients.
+            </FormLabel>
+            <FormGroup style={styles.gridList}>
+            <FormLabel style={leftstyle}>Who we are:</FormLabel>
 
+            <Grid container spacing={25} >
+
+            
+            <Grid item md={4}>
+             <Card style={styles.card}>
+            <CardActionArea>
+                <img style={styles.media} src={ali} alt="" />
+                
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                Dr Ali Mosayyebi AMIMechE MIET
+                </Typography>
+                <Typography component="p">
+                Ali Mosayyebi AMIMechE MIET is the founder of Simple Stents
+                </Typography>
+                </CardContent>
+            </CardActionArea>
+            <CardActions>
+            <Button size="small" href="https://www.southampton.ac.uk/engineering/postgraduate/research_students/am10n12.page?" color="primary">
+                View Personal Page
+                </Button>
+                <Button size="small" href="https://www.linkedin.com/in/ali-mosayyebi-amimeche-miet-7528b445" color="primary">
+                View LinkedIn
+                </Button>
+                
+            </CardActions>
+            </Card>
+            </Grid>
+            <Grid item md={4}>
+            <Card style={styles.card}>
+            <CardActionArea>
+                <img style={styles.media} src={dario} alt="" />
+                
+                <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                Dr Dario Carugo PhD
+                </Typography>
+                <Typography component="p">
+                Dr Dario Carugo PhD
+                </Typography>
+                </CardContent>
+            </CardActionArea>
+            <CardActions>
+                <Button size="small" href="https://www.southampton.ac.uk/engineering/about/staff/dc7e09.page" color="primary">
+                View Personal Page
+                </Button>
+            </CardActions>
+            </Card>
+            </Grid>
+            </Grid>
+            </FormGroup>
+            </div>
         </Fragment>
     );
   }
 }
-
-export default Home;
+Home.propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+  
+  export default (Home);
