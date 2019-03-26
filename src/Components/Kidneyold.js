@@ -10,6 +10,16 @@ import third from '../simplestents_images/third.png'
 import fourth from '../simplestents_images/fourth.png'
 import fifth from '../simplestents_images/fifth.png'
 import Fade from 'react-reveal/Fade';
+// const setStyles = (wrapperEl, videoEl, playbackRate) => {
+//   wrapperEl.style.marginTop = `calc(180% - ${Math.floor(videoEl.duration) *
+//     playbackRate +
+//     'px'})`
+//   wrapperEl.style.marginBottom = `calc(180% - ${Math.floor(videoEl.duration) *
+//     playbackRate +
+//     'px'})`
+// }
+  
+
   
 
 
@@ -20,41 +30,36 @@ class Kidney extends Component {
          
          };
        }
-     
+      
   
-
+      ref = player => {
+        this.player = player
+      }
+    
+   
     render() {
       const leftstyle = {
         paddingTop:"55px",
         float: "left",
-        width: "70%",
+        width: "50%",
       }
       const rightstyle = {
-        marginTop:"55px",
-        float: "right",
-        width: "30%"
-      }
-
-      const BorderStyle = {
         marginTop:"55px",
         float: "right",
         width: "30%",
         border: "5px solid red",
       }
-      
     return (
         
-
+        <Fragment>
             
+        
+            <div style={rightstyle}>
            
-        <Fragment >
-         <div style={BorderStyle}>
-         <img src={first} alt="" />
-       
-         </div>
-         
-
-         </Fragment>
+            <img src={first} alt="" />
+              </div>
+      
+        </Fragment>
         
     );
   }
