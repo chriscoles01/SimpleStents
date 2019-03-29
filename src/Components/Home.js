@@ -22,7 +22,44 @@ class Home extends Component {
           
          };
        }
-       
+       getCard = (title, text) => {
+        const styles = {
+          card: {
+            minWidth: 275,
+            
+          },
+          bullet: {
+            display: 'inline-block',
+            margin: '0 2px',
+            transform: 'scale(0.8)',
+          },
+          title: {
+            fontSize: 14,
+          },
+          pos: {
+            marginBottom: 12,
+          },
+        };
+        return(
+  
+  <Card className={styles.card}>
+        <CardContent>
+          <Typography className={styles.title} color="textSecondary" gutterBottom>
+  {title}
+          </Typography>
+          <Typography variant="h5" component="h2">
+            {text}
+          </Typography>
+         
+        </CardContent>
+        <CardActions>
+          <Button size="small">Example button</Button>
+        </CardActions>
+      </Card>
+  
+        );
+      }
+  
     render() {
       const leftstyle = {
         float: "left",
@@ -38,6 +75,8 @@ class Home extends Component {
         flexWrap: 'wrap',
         justifyContent: 'space-around',
         overflow: 'hidden',
+        paddingLeft: "10%",
+        paddingRight: "10%"
       }
       const styles = {
         card: {
@@ -59,8 +98,9 @@ class Home extends Component {
             
             <div style={pageStyle}>
             <FormLabel >
-            Founded by Bioengineering PhD student Ali Mosayyebi, University of Southampton spin-out Simple Stents is pioneering an innovative stent design that delivers significant healthcare improvements to patients.
+            
             </FormLabel>
+            {this.getCard("About","Founded by Bioengineering PhD student Ali Mosayyebi, University of Southampton spin-out Simple Stents is pioneering an innovative stent design that delivers significant healthcare improvements to patients.")}
             <FormGroup style={styles.gridList}>
             <FormLabel style={leftstyle}>Who we are:</FormLabel>
 
