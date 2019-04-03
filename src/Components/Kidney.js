@@ -1,6 +1,7 @@
 
 import React, { Component, Fragment } from 'react';
 import { VideoScroll } from 'react-video-scroll'
+import "./Kidney.css"
 // import IconButton from '@material-ui/core/IconButton';
 // import ExpandIcon from '@material-ui/icons/ArrowDropDownCircle'
 import {Stickyroll} from '@stickyroll/stickyroll';
@@ -23,11 +24,30 @@ class Kidney extends Component {
     constructor(props) {
         super(props);
         this.state = {
-         
+          top: true,
+          middle: false,
+          bottom: false
          };
          
        }
-     
+      changeImage() {
+        if(this.state.top){
+          this.setState({top: false, middle:true, bottom: false})
+        }else if(this.state.middle) {
+          this.setState({top: false, middle:false, bottom: true})
+        }else if(this.state.bottom) {
+          this.setState({top: true, middle:false, bottom: false})
+        }
+      }
+      
+   
+    hoverOn(){
+      this.setState({ hover: true });
+    }
+    hoverOff(){ 
+      this.setState({ hover: false });    
+    }
+
     getCard = text => {
       const styles = {
         card: {
@@ -50,7 +70,7 @@ class Kidney extends Component {
 <Card className={styles.card}>
       <CardContent>
         <Typography className={styles.title} color="textSecondary" gutterBottom>
-Information
+        Information
         </Typography>
         <Typography variant="h5" component="h2">
           {text}
@@ -87,7 +107,6 @@ Information
       }
 
       const BorderStyle = {
-        marginTop:"65px",
         
         border: "5px solid red",
       }
@@ -106,13 +125,19 @@ Information
         width: "30%",
         height: "100%",
       } 
+      
+      const title = {
+        fontSize: "300%"
+      }
       const oneImage= {
         
         width: "100%",
         height: "100%",
       } 
-      const title = {
-        fontSize: "300%"
+      const over = {
+        zIndex: 1,
+        border: "5px solid red",
+
       }
     return (
         
@@ -121,6 +146,7 @@ Information
            
         <Fragment >
         <div style={pageStyle}>
+
         <div style={title}>
           <Form>
             <Form.Group>
@@ -128,71 +154,42 @@ Information
             </Form.Group>
           </Form>
         </div>
-        <div>
+        <div >
 
         <Grid container spacing={25} >
 
         <Grid item md={4}>
 
-        <div style={leftstyle}>
+        <div >
+
         {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")}
          </div>
          </Grid>
-        <Card>
-        <CardContent>
-
-         <Grid item md={4}>
-         <div >
-
-         <ReactHoverObserver>
-        {({ isHovering }) => (
-          isHovering ? 
-
+         <div style={this.state.top ? over : null}   id="top" > 
+         
           <img style={oneImage} src={first} alt="" />
-          :      
-
-
-            
-            <img style={rightImage} src={first} alt="" />
-
-        )}
-    </ReactHoverObserver>
-          <ReactHoverObserver>
-              {({ isHovering }) => (
-                isHovering ? 
-
-                <img style={oneImage} src={second} alt="" />
-                :      
-
-
-                  
-                  <img style={rightImage} src={second} alt="" />
-
-              )}
-          </ReactHoverObserver>
-          <ReactHoverObserver>
-        {({ isHovering }) => (
-          isHovering ? 
-
-          <img style={oneImage} src={third} alt="" />
-          :      
-
-
-            
-            <img style={rightImage} src={third} alt="" />
-
-        )}
-    </ReactHoverObserver>
+       
+          <div style={this.state.middle || this.state.bottom ? over : null} id="middle">
+            <img style={oneImage} src={second} alt="" />
+          
+            <div style={this.state.bottom ? over : null} id="bottom">
+            <img style={oneImage} src={first} alt="" />
+            </div>
           </div>
 
-          </Grid>
-            </CardContent>
-          </Card>
+          </div>
+          <button onClick={() => this.changeImage()}>next image</button>
+        
+
+
+            
 
          </Grid>
+
          </div>
-     
+         
          </div>
+         
          </Fragment>
         
     );

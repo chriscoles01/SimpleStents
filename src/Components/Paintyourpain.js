@@ -110,6 +110,7 @@ class Paintyourpain extends Component {
         </ReactHoverObserver>
         
         </div>
+        
          </Fragment>
         
     );

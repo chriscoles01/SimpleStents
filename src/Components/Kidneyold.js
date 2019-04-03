@@ -36,7 +36,57 @@ class Kidney extends Component {
         this.player = player
       }
     
-   
+      getImages = () => {
+        const oneImage= {
+          
+          width: "100%",
+          height: "100%",
+        } 
+       
+        return (
+          
+          <div id="top" > 
+            <img style={oneImage} src={first} alt="" />
+            <div id={this.state.hover ? "middleover" : "middle"}>
+            
+  
+              <img ref="hoverElement" onMouseOver={() => this.hoverOn()}
+              onMouseLeave={this.hoverOff} style={oneImage} src={first} alt="" />
+              <div id="bottom">
+              <img style={oneImage} src={first} alt="" />
+              </div>
+            </div>
+            </div>
+  
+          // <ReactHoverObserver>
+          // {({ isHovering }) => (
+          //   isHovering ? 
+  
+          //   <img style={oneImage} src={first} alt="" />
+          //   :      
+  
+  
+              
+          //     <img style={rightImage} src={first} alt="" />
+  
+          // )}
+          // </ReactHoverObserver>
+          
+          //   <ReactHoverObserver>
+          // {({ isHovering }) => (
+          //   isHovering ? 
+  
+          //   <img style={oneImage} src={third} alt="" />
+          //   :      
+  
+  
+              
+          //     <img style={rightImage} src={third} alt="" />
+  
+          // )}
+          // </ReactHoverObserver>
+        )
+      }
     render() {
       const leftstyle = {
         paddingTop:"55px",
