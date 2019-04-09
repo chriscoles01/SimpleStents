@@ -108,8 +108,7 @@ class Kidney extends Component {
         // overflow: 'hidden',
         paddingRight: "5%",
         paddingLeft: "5%",
-        // backgroundColor: "black",
-        // zIndex: -1,
+        
 
       }
       const leftstyle = {
@@ -127,10 +126,6 @@ class Kidney extends Component {
 
       }
 
-      const BorderStyle = {
-        
-        border: "5px solid red",
-      }
       
       
       const title = {
@@ -140,7 +135,7 @@ class Kidney extends Component {
         
         width: "100%",
         height: "100%",
-        border: "1px solid grey"
+        border: "1px solid red"
       } 
       const over = {
         zIndex: 1,
@@ -173,38 +168,39 @@ class Kidney extends Component {
           </Form>
         </div>
         <div >
+<Grid>
 
-
-
+<Grid item>
         <div style={leftstyle}>
 
         {/* {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")} */}
         "The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder."
          </div>
-
+         </Grid>
+         <Grid item>
          <div style={rightstyle}>
-        <div onMouseEnter={() => this.toggleTop()} onMouseLeave={() => this.toggleTop()}>
-         <div    style={this.state.top ? over : null}   id="top" > 
+        <div   onMouseEnter={() => this.toggleTop()} onMouseLeave={() => this.toggleTop()}>
+         <div  id="top"  style={this.state.top ? over : null}   > 
           <img  style={oneImage} src={first} alt="" />
           </div>
         </div>
-        <div onMouseEnter={() => this.toggleMid()} onMouseLeave={() => this.toggleMid()}>
+        <div  onMouseEnter={() => this.toggleMid()} onMouseLeave={() => this.toggleMid()}>
 
-          <div  style={this.state.middle ? over : null} id="middle">
+          <div id="middle" style={this.state.middle ? over : null} >
             <img style={oneImage} src={second} alt="" />
           </div>
           </div>
           <div onMouseEnter={() => this.toggleBot()} onMouseLeave={() => this.toggleBot()}>
 
-            <div style={this.state.bottom ? over : null} id="bottom">
+            <div id="bottom" style={this.state.bottom ? over : null} >
             <img style={oneImage} src={third} alt="" />
             </div>
         </div>
 
          
         </div>
-
-            
+        </Grid>
+        </Grid>   
 
 
          </div>
