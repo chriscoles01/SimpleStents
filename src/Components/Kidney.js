@@ -13,7 +13,7 @@ import fifth from '../simplestents_images/fifth.png'
 import Fade from 'react-reveal/Fade';
 import Grid from '@material-ui/core/Grid';
 import ReactHoverObserver from 'react-hover-observer'
-import {Form, Container} from 'react-bootstrap'
+import {Form, Row, Col, Container} from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -114,14 +114,14 @@ class Kidney extends Component {
       const leftstyle = {
         paddingTop:"55px",
         float: "left",
-        width: "70%",
+        width: "60%",
 
        
       }
       const rightstyle = {
         marginTop:"55px",
         float: "right",
-        width: "30%",
+        width: "40%",
         border: "5px solid red",
 
       }
@@ -168,17 +168,17 @@ class Kidney extends Component {
           </Form>
         </div>
         <div >
-<Grid>
-
-<Grid item>
-        <div style={leftstyle}>
+        <Form>
+          <Row>
+            <Col>
+        <div >
 
         {/* {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")} */}
         "The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder."
          </div>
-         </Grid>
-         <Grid item>
-         <div style={rightstyle}>
+         </Col>
+         <Col>
+         <div >
         <div   onMouseEnter={() => this.toggleTop()} onMouseLeave={() => this.toggleTop()}>
          <div  id="top"  style={this.state.top ? over : null}   > 
           <img  style={oneImage} src={first} alt="" />
@@ -195,13 +195,15 @@ class Kidney extends Component {
             <div id="bottom" style={this.state.bottom ? over : null} >
             <img style={oneImage} src={third} alt="" />
             </div>
+            
         </div>
-
-         
+        
+       
+        
         </div>
-        </Grid>
-        </Grid>   
-
+        </Col>
+        </Row>
+        </Form>
 
          </div>
          
