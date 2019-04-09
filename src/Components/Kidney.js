@@ -13,7 +13,7 @@ import fifth from '../simplestents_images/fifth.png'
 import Fade from 'react-reveal/Fade';
 import Grid from '@material-ui/core/Grid';
 import ReactHoverObserver from 'react-hover-observer'
-import {Form} from 'react-bootstrap'
+import {Form, Container} from 'react-bootstrap'
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -24,19 +24,33 @@ class Kidney extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          top: true,
+          top: false,
           middle: false,
           bottom: false
          };
          
        }
-      changeImage() {
+      
+      toggleTop(){
         if(this.state.top){
-          this.setState({top: false, middle:true, bottom: false})
-        }else if(this.state.middle) {
-          this.setState({top: false, middle:false, bottom: true})
-        }else if(this.state.bottom) {
-          this.setState({top: true, middle:false, bottom: false})
+          this.setState({top: false})
+        }else  {
+          this.setState({top: true})
+        }
+        console.log("top toggle")
+      }
+      toggleBot(){
+        if(this.state.bottom){
+          this.setState({bottom: false})
+        }else  {
+          this.setState({bottom: true})
+        }
+      }
+      toggleMid(){
+        if(this.state.middle){
+          this.setState({middle: false})
+        }else  {
+          this.setState({middle: true})
         }
       }
       
@@ -88,43 +102,36 @@ class Kidney extends Component {
     render() {
       const pageStyle = {
         paddingTop:"100px",
-        // display: 'flex',
+        display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
-        overflow: 'hidden',
+        // overflow: 'hidden',
         paddingRight: "5%",
-        paddingLeft: "5%"
+        paddingLeft: "5%",
+        // backgroundColor: "black",
+        // zIndex: -1,
+
       }
       const leftstyle = {
         paddingTop:"55px",
         float: "left",
+        width: "70%",
+
        
       }
       const rightstyle = {
         marginTop:"55px",
         float: "right",
-        width: "30%"
+        width: "30%",
+        border: "5px solid red",
+
       }
 
       const BorderStyle = {
         
         border: "5px solid red",
       }
-      const leftImage= {
-        float: "left",
-        width: "30%",
-        height: "100%",
-      }
-      const rightImage= {
-        float: "right",
-        width: "30%",
-        height: "100%",
-      }
-      const middleImage= {
-        
-        width: "30%",
-        height: "100%",
-      } 
+      
       
       const title = {
         fontSize: "300%"
@@ -133,19 +140,30 @@ class Kidney extends Component {
         
         width: "100%",
         height: "100%",
+        border: "1px solid grey"
       } 
       const over = {
         zIndex: 1,
-        border: "5px solid red",
+        
+        height: 300,
+        width: 300
+       
+
+      }
+      const box = {
+
+        border: "1px solid grex",
+        height: 300,
+        width: 300
 
       }
     return (
         
 
-            
+      <div style={pageStyle}>   
            
         <Fragment >
-        <div style={pageStyle}>
+        
 
         <div style={title}>
           <Form>
@@ -156,41 +174,44 @@ class Kidney extends Component {
         </div>
         <div >
 
-        <Grid container spacing={25} >
 
-        <Grid item md={4}>
 
-        <div >
+        <div style={leftstyle}>
 
-        {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")}
+        {/* {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")} */}
+        "The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder."
          </div>
-         </Grid>
-         <div style={this.state.top ? over : null}   id="top" > 
-         
-          <img style={oneImage} src={first} alt="" />
-       
-          <div style={this.state.middle || this.state.bottom ? over : null} id="middle">
+
+         <div style={rightstyle}>
+        <div onMouseEnter={() => this.toggleTop()} onMouseLeave={() => this.toggleTop()}>
+         <div    style={this.state.top ? over : null}   id="top" > 
+          <img  style={oneImage} src={first} alt="" />
+          </div>
+        </div>
+        <div onMouseEnter={() => this.toggleMid()} onMouseLeave={() => this.toggleMid()}>
+
+          <div  style={this.state.middle ? over : null} id="middle">
             <img style={oneImage} src={second} alt="" />
-          
+          </div>
+          </div>
+          <div onMouseEnter={() => this.toggleBot()} onMouseLeave={() => this.toggleBot()}>
+
             <div style={this.state.bottom ? over : null} id="bottom">
-            <img style={oneImage} src={first} alt="" />
+            <img style={oneImage} src={third} alt="" />
             </div>
-          </div>
+        </div>
 
-          </div>
-          <button onClick={() => this.changeImage()}>next image</button>
-        
-
+         
+        </div>
 
             
 
-         </Grid>
 
          </div>
          
-         </div>
-         
+     
          </Fragment>
+         </div>
         
     );
   }
