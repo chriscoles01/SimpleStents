@@ -20,17 +20,37 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+var numImages =  0
+
 class Kidney extends Component {
     constructor(props) {
         super(props);
         this.state = {
           top: false,
           middle: false,
-          bottom: false
+          bottom: false,
+          
          };
          
        }
-      
+      getNumImages = () => {
+        return numImages
+      }
+      increaseNumImages = () => {
+        numImages = numImages + 1
+      }
+      toggleImage = event => {
+        if(this.state[event.id] == null || false) {
+          this.setState({
+            [event.target.id]: true
+          });
+        } else {
+          this.setState({
+            [event.target.id]: false
+          });
+        }
+      }
+      increaseNumImages
       toggleTop(){
         if(this.state.top){
           this.setState({top: false})
@@ -90,7 +110,7 @@ class Kidney extends Component {
 
       );
     }
-
+   
     getLeftStyled = text => {
       const oneImage= {
         
@@ -103,9 +123,8 @@ class Kidney extends Component {
         
         height: 300,
         width: 300
-       
-
       }
+
       return (
         <Fragment>
         <Col>
@@ -117,23 +136,28 @@ class Kidney extends Component {
          </Col>
          <Col>
          <div >
-        <div   onMouseEnter={() => this.toggleTop()} onMouseLeave={() => this.toggleTop()}>
-         <div  id="top"  style={this.state.top ? over : null}   > 
+        <div  id={this.getNumImages().toString} onMouseEnter={this.toggleImage} onMouseLeave={this.toggleImage}>
+        
+         <div  id="top"  style={this.state[this.getNumImages().toString] == null || false ? null : over}   > 
           <img  style={oneImage} src={first} alt="" />
           </div>
+          {this.increaseNumImages()}
         </div>
-        <div  onMouseEnter={() => this.toggleMid()} onMouseLeave={() => this.toggleMid()}>
-
-          <div id="middle" style={this.state.middle ? over : null} >
+        <div id={this.getNumImages().toString}  onMouseEnter={this.toggleImage} onMouseLeave={this.toggleImage}>
+        
+          
+          <div id="middle" style={this.state[this.getNumImages().toString] == null || false ? null : over} >
             <img style={oneImage} src={second} alt="" />
           </div>
+          {this.increaseNumImages()}
           </div>
-          <div onMouseEnter={() => this.toggleBot()} onMouseLeave={() => this.toggleBot()}>
+          <div id={this.getNumImages().toString} onMouseEnter={this.toggleImage} onMouseLeave={this.toggleImage}>
 
-            <div id="bottom" style={this.state.bottom ? over : null} >
+            <div id="bottom" style={this.state[this.getNumImages().toString] == null || false ? null : over} >
             <img style={oneImage} src={third} alt="" />
             </div>
-            
+            {this.increaseNumImages()}
+  
         </div>
         
        
