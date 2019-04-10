@@ -54,14 +54,6 @@ class Kidney extends Component {
         }
       }
       
-   
-    hoverOn(){
-      this.setState({ hover: true });
-    }
-    hoverOff(){ 
-      this.setState({ hover: false });    
-    }
-
     getCard = text => {
       const styles = {
         card: {
@@ -81,22 +73,133 @@ class Kidney extends Component {
       };
       return(
 
-<Card className={styles.card}>
-      <CardContent>
-        <Typography className={styles.title} color="textSecondary" gutterBottom>
-        Information
-        </Typography>
-        <Typography variant="h5" component="h2">
-          {text}
-        </Typography>
-       
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+      <Card className={styles.card}>
+            <CardContent>
+              <Typography className={styles.title} color="textSecondary" gutterBottom>
+              Information
+              </Typography>
+              <Typography variant="h5" component="h2">
+                {text}
+              </Typography>
+            
+            </CardContent>
+            <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
 
       );
+    }
+
+    getLeftStyled = text => {
+      const oneImage= {
+        
+        width: "100%",
+        height: "100%",
+        border: "1px solid red"
+      } 
+      const over = {
+        zIndex: 1,
+        
+        height: 300,
+        width: 300
+       
+
+      }
+      return (
+        <Fragment>
+        <Col>
+        <div >
+
+        {/* {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")} */}
+        "The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder."
+         </div>
+         </Col>
+         <Col>
+         <div >
+        <div   onMouseEnter={() => this.toggleTop()} onMouseLeave={() => this.toggleTop()}>
+         <div  id="top"  style={this.state.top ? over : null}   > 
+          <img  style={oneImage} src={first} alt="" />
+          </div>
+        </div>
+        <div  onMouseEnter={() => this.toggleMid()} onMouseLeave={() => this.toggleMid()}>
+
+          <div id="middle" style={this.state.middle ? over : null} >
+            <img style={oneImage} src={second} alt="" />
+          </div>
+          </div>
+          <div onMouseEnter={() => this.toggleBot()} onMouseLeave={() => this.toggleBot()}>
+
+            <div id="bottom" style={this.state.bottom ? over : null} >
+            <img style={oneImage} src={third} alt="" />
+            </div>
+            
+        </div>
+        
+       
+        
+        </div>
+
+        </Col>
+        </Fragment>
+      )
+
+    }
+
+    getRightStyled = text => {
+      const oneImage= {
+        
+        width: "100%",
+        height: "100%",
+        border: "1px solid red"
+      } 
+      const over = {
+        zIndex: 1,
+        
+        height: 300,
+        width: 300
+       
+
+      }
+      return (
+        <Fragment>
+        
+         <Col>
+         <div >
+        <div   onMouseEnter={() => this.toggleTop()} onMouseLeave={() => this.toggleTop()}>
+         <div  id="top"  style={this.state.top ? over : null}   > 
+          <img  style={oneImage} src={first} alt="" />
+          </div>
+        </div>
+        <div  onMouseEnter={() => this.toggleMid()} onMouseLeave={() => this.toggleMid()}>
+
+          <div id="middle" style={this.state.middle ? over : null} >
+            <img style={oneImage} src={second} alt="" />
+          </div>
+          </div>
+          <div onMouseEnter={() => this.toggleBot()} onMouseLeave={() => this.toggleBot()}>
+
+            <div id="bottom" style={this.state.bottom ? over : null} >
+            <img style={oneImage} src={third} alt="" />
+            </div>
+            
+        </div>
+        
+       
+        
+        </div>
+
+        </Col>
+        <Col>
+        <div >
+
+        {/* {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")} */}
+        "The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder."
+         </div>
+         </Col>
+        </Fragment>
+      )
+
     }
 
     render() {
@@ -145,13 +248,7 @@ class Kidney extends Component {
        
 
       }
-      const box = {
-
-        border: "1px solid grex",
-        height: 300,
-        width: 300
-
-      }
+      
     return (
         
 
@@ -170,38 +267,10 @@ class Kidney extends Component {
         <div >
         <Form>
           <Row>
-            <Col>
-        <div >
-
-        {/* {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")} */}
-        "The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder."
-         </div>
-         </Col>
-         <Col>
-         <div >
-        <div   onMouseEnter={() => this.toggleTop()} onMouseLeave={() => this.toggleTop()}>
-         <div  id="top"  style={this.state.top ? over : null}   > 
-          <img  style={oneImage} src={first} alt="" />
-          </div>
-        </div>
-        <div  onMouseEnter={() => this.toggleMid()} onMouseLeave={() => this.toggleMid()}>
-
-          <div id="middle" style={this.state.middle ? over : null} >
-            <img style={oneImage} src={second} alt="" />
-          </div>
-          </div>
-          <div onMouseEnter={() => this.toggleBot()} onMouseLeave={() => this.toggleBot()}>
-
-            <div id="bottom" style={this.state.bottom ? over : null} >
-            <img style={oneImage} src={third} alt="" />
-            </div>
-            
-        </div>
-        
-       
-        
-        </div>
-        </Col>
+           {this.getLeftStyled()}
+        </Row>
+        <Row>
+          {this.getRightStyled()}
         </Row>
         </Form>
 
