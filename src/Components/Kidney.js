@@ -1,20 +1,14 @@
 
 import React, { Component, Fragment } from 'react';
-import { VideoScroll } from 'react-video-scroll'
 import "./Kidney.css"
 // import IconButton from '@material-ui/core/IconButton';
 // import ExpandIcon from '@material-ui/icons/ArrowDropDownCircle'
-import {Stickyroll} from '@stickyroll/stickyroll';
 import first from '../simplestents_images/first.png'
 import second from '../simplestents_images/second.png'
 import third from '../simplestents_images/third.png'
-import fourth from '../simplestents_images/fourth.png'
-import fifth from '../simplestents_images/fifth.png'
-import Fade from 'react-reveal/Fade';
-import Grid from '@material-ui/core/Grid';
-import ReactHoverObserver from 'react-hover-observer'
-import {Form, Row, Col, Container} from 'react-bootstrap'
-import TextField from '@material-ui/core/TextField';
+// import fourth from '../simplestents_images/fourth.png'
+// import fifth from '../simplestents_images/fifth.png'
+import {Form, Row, Col} from 'react-bootstrap'
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -50,7 +44,7 @@ class Kidney extends Component {
           });
         }
       }
-      increaseNumImages
+      
       toggleTop(){
         if(this.state.top){
           this.setState({top: false})
@@ -238,40 +232,40 @@ class Kidney extends Component {
         
 
       }
-      const leftstyle = {
-        paddingTop:"55px",
-        float: "left",
-        width: "60%",
+      // const leftstyle = {
+      //   paddingTop:"55px",
+      //   float: "left",
+      //   width: "60%",
 
        
-      }
-      const rightstyle = {
-        marginTop:"55px",
-        float: "right",
-        width: "40%",
-        border: "5px solid red",
+      // }
+      // const rightstyle = {
+      //   marginTop:"55px",
+      //   float: "right",
+      //   width: "40%",
+      //   border: "5px solid red",
 
-      }
+      // }
 
       
       
       const title = {
         fontSize: "300%"
       }
-      const oneImage= {
+      // const oneImage= {
         
-        width: "100%",
-        height: "100%",
-        border: "1px solid red"
-      } 
-      const over = {
-        zIndex: 1,
+      //   width: "100%",
+      //   height: "100%",
+      //   border: "1px solid red"
+      // } 
+      // const over = {
+      //   zIndex: 1,
         
-        height: 300,
-        width: 300
+      //   height: 300,
+      //   width: 300
        
 
-      }
+      // }
       
     return (
         

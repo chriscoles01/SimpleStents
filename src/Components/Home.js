@@ -4,15 +4,12 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import ali from '../simplestents_images/ali.jpeg'
 import dario from '../simplestents_images/Dario.jpg'
 import FormLabel from '@material-ui/core/FormLabel';
 import Grid from '@material-ui/core/Grid';
-import GridListTile from '@material-ui/core/GridListTile';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import { FormGroup } from '@material-ui/core';
 
 class Home extends Component {
@@ -64,11 +61,11 @@ class Home extends Component {
       const leftstyle = {
         float: "left",
       }
-      const rightstyle = {
-        marginTop:"55px",
-        float: "right",
-        width: "50%"
-      }
+      // const rightstyle = {
+      //   marginTop:"55px",
+      //   float: "right",
+      //   width: "50%"
+      // }
       const pageStyle = {
         paddingTop:"100px",
         display: 'flex',
