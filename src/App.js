@@ -15,7 +15,6 @@ class App extends Component {
               <Button  href="/" color="inherit">Home</Button>
               <Button color="inherit" href="/kidney">Kidney</Button>
               <Button color="inherit" href="/bladder">Urinary System</Button>
-              <Button color="inherit" href="/paintyourpain">Paint your Pain</Button>
     </Toolbar>
     </AppBar>
 
