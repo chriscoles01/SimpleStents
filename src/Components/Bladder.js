@@ -2,16 +2,16 @@
 that when the user scrolled or dragged on the screen the animation was 
 advanced as needed. Eventually this was decided not to be used, however, 
 I have left it here in case it is needed again. - Christopher Coles 06/06/19
-
+This may contain depricated code, left in case it wanted to be impolemented again
 */
 
 import React, { Component, Fragment } from 'react';
-import { VideoScroll } from 'react-video-scroll'
 import IconButton from '@material-ui/core/IconButton';
 import ExpandIcon from '@material-ui/icons/ArrowDropDownCircle'
 import {Stickyroll} from '@stickyroll/stickyroll';
+import { VideoScroll } from 'react-video-scroll'
 
-import Kidneytones from '../simplestents_images/kidneystones.jpg'
+import Kidneystones from '../simplestents_images/kidneystones.jpg'
 
   
 const setStyles = (wrapperEl, videoEl, playbackRate) => {
@@ -81,12 +81,7 @@ class Home extends Component {
           </VideoScroll>
             </div>
            
-            </Fragment>
-
-                
-
-                
-                
+            </Fragment>             
               );
           }}
           
@@ -95,7 +90,7 @@ class Home extends Component {
           </div>
           <div style={rightstyle}>
             
-          <img style={{  width: '100%', height: '100%', objectFit: 'contain' }} src={Kidneytones} alt="" />
+          <img style={{  width: '100%', height: '100%', objectFit: 'contain' }} src={Kidneystones} alt="" />
            
             </div>
           
