@@ -9,7 +9,8 @@ class App extends Component {
     return (
       <Fragment>
       
-    
+    {/* This creates the navigation bar along the top of the page */}
+
     <AppBar  position="fixed">
     <Toolbar>
               <Button  href="/" color="inherit">Home</Button>
@@ -17,7 +18,7 @@ class App extends Component {
               <Button color="inherit" href="/bladder">Urinary System</Button>
     </Toolbar>
     </AppBar>
-
+    {/* Routes component made, this will render the appropriate page given the url (href) */}
     <Routes/>
         </Fragment>
 

@@ -49,9 +49,7 @@ class Home extends Component {
           </Typography>
          
         </CardContent>
-        <CardActions>
-          <Button size="small">Example button</Button>
-        </CardActions>
+        
       </Card>
   
         );
