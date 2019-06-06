@@ -19,6 +19,7 @@ class Home extends Component {
           
          };
        }
+      //used to return a card given the ttle and body of the card 
        getCard = (title, text) => {
         const styles = {
           card: {
@@ -39,10 +40,10 @@ class Home extends Component {
         };
         return(
   
-  <Card className={styles.card}>
+      <Card className={styles.card}>
         <CardContent>
           <Typography className={styles.title} color="textSecondary" gutterBottom>
-  {title}
+            {title}
           </Typography>
           <Typography variant="h5" component="h2">
             {text}
@@ -59,11 +60,7 @@ class Home extends Component {
       const leftstyle = {
         float: "left",
       }
-      // const rightstyle = {
-      //   marginTop:"55px",
-      //   float: "right",
-      //   width: "50%"
-      // }
+     
       const pageStyle = {
         paddingTop:"100px",
         display: 'flex',
@@ -86,7 +83,8 @@ class Home extends Component {
             width:"50%"
         }
       }
-      
+      //creates a title, about card and cards for the founders of the comapny, which have buttons to links to personal pages
+      //the personal info cards could be moved to a generic method, might be useful if there is more info cards created
     return (
         
         <Fragment >

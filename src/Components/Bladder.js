@@ -1,3 +1,10 @@
+/*This file was for making use of a video animation, and making it so 
+that when the user scrolled or dragged on the screen the animation was 
+advanced as needed. Eventually this was decided not to be used, however, 
+I have left it here in case it is needed again. - Christopher Coles 06/06/19
+
+*/
+
 import React, { Component, Fragment } from 'react';
 import { VideoScroll } from 'react-video-scroll'
 import IconButton from '@material-ui/core/IconButton';
@@ -5,14 +12,7 @@ import ExpandIcon from '@material-ui/icons/ArrowDropDownCircle'
 import {Stickyroll} from '@stickyroll/stickyroll';
 
 import Kidneytones from '../simplestents_images/kidneystones.jpg'
-// const setStyles = (wrapperEl, videoEl, playbackRate) => {
-//   wrapperEl.style.marginTop = `calc(180% - ${Math.floor(videoEl.duration) *
-//     playbackRate +
-//     'px'})`
-//   wrapperEl.style.marginBottom = `calc(180% - ${Math.floor(videoEl.duration) *
-//     playbackRate +
-//     'px'})`
-// }
+
   
 const setStyles = (wrapperEl, videoEl, playbackRate) => {
   wrapperEl.style.marginTop = 0
@@ -39,9 +39,7 @@ class Home extends Component {
       ref = player => {
         this.player = player
       }
-    // getImage = progress =>{
-    //   if progress < 
-    // }
+   
     render() {
       const leftstyle = {
         float: "left",
@@ -77,17 +75,12 @@ class Home extends Component {
               style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               playsInline
             >
+              {/* The video has to be in the public folder */}
               <source type="video/mp4" src="./stent.mp4" />
             </video>
           </VideoScroll>
             </div>
-            {/* <div style={rightstyle}>
-            <label>Simple Stents </label>
-
-            <label>{progress}</label>
-            
            
-            </div> */}
             </Fragment>
 
                 

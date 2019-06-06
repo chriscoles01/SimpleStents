@@ -1,19 +1,14 @@
 
 import React, { Component, Fragment } from 'react';
 import "./Kidney.css"
-// import IconButton from '@material-ui/core/IconButton';
-// import ExpandIcon from '@material-ui/icons/ArrowDropDownCircle'
+
+
 import first from '../simplestents_images/first.png'
 import second from '../simplestents_images/second.png'
 import third from '../simplestents_images/third.png'
-// import fourth from '../simplestents_images/fourth.png'
-// import fifth from '../simplestents_images/fifth.png'
+
 import {Form, Row, Col} from 'react-bootstrap'
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+
 var numImages =  0
 
 class Kidney extends Component {
@@ -27,12 +22,15 @@ class Kidney extends Component {
          };
          
        }
+
       getNumImages = () => {
         return numImages
       }
+
       increaseNumImages = () => {
         numImages = numImages + 1
       }
+      //used to toggle which image was being selected (depending which was being hovered over)
       toggleImage = event => {
         if(this.state[event.id] == null || false) {
           this.setState({
@@ -44,7 +42,7 @@ class Kidney extends Component {
           });
         }
       }
-      
+      //the next three are used to toggle the image respective of position
       toggleTop(){
         if(this.state.top){
           this.setState({top: false})
@@ -53,6 +51,7 @@ class Kidney extends Component {
         }
         console.log("top toggle")
       }
+
       toggleBot(){
         if(this.state.bottom){
           this.setState({bottom: false})
@@ -60,6 +59,7 @@ class Kidney extends Component {
           this.setState({bottom: true})
         }
       }
+
       toggleMid(){
         if(this.state.middle){
           this.setState({middle: false})
@@ -67,44 +67,7 @@ class Kidney extends Component {
           this.setState({middle: true})
         }
       }
-      
-    getCard = text => {
-      const styles = {
-        card: {
-          minWidth: 275,
-        },
-        bullet: {
-          display: 'inline-block',
-          margin: '0 2px',
-          transform: 'scale(0.8)',
-        },
-        title: {
-          fontSize: 14,
-        },
-        pos: {
-          marginBottom: 12,
-        },
-      };
-      return(
-
-      <Card className={styles.card}>
-            <CardContent>
-              <Typography className={styles.title} color="textSecondary" gutterBottom>
-              Information
-              </Typography>
-              <Typography variant="h5" component="h2">
-                {text}
-              </Typography>
-            
-            </CardContent>
-            <CardActions>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
-
-      );
-    }
-   
+   //returns the componentes with the text on the left hand side
     getLeftStyled = text => {
       const oneImage= {
         
@@ -124,7 +87,6 @@ class Kidney extends Component {
         <Col>
         <div >
 
-        {/* {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")} */}
         "The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder."
          </div>
          </Col>
@@ -163,6 +125,7 @@ class Kidney extends Component {
       )
 
     }
+   //returns the componentes with the text on the right hand side
 
     getRightStyled = text => {
       const oneImage= {
@@ -211,7 +174,6 @@ class Kidney extends Component {
         <Col>
         <div >
 
-        {/* {this.getCard("The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder.")} */}
         "The kidneys are two bean-shaped organs found in vertebrates. They are located on the left and right in the retroperitoneal space, and in adult humans are about 11 centimetres (4.3 in) in length. They receive blood from the paired renal arteries; blood exits into the paired renal veins. Each kidney is attached to a ureter, a tube that carries excreted urine to the bladder."
          </div>
          </Col>
