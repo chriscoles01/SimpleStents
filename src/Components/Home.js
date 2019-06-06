@@ -90,9 +90,7 @@ class Home extends Component {
         <Fragment >
             
             <div style={pageStyle}>
-            <FormLabel >
             
-            </FormLabel>
             {this.getCard("About","Founded by Bioengineering PhD student Ali Mosayyebi, University of Southampton spin-out Simple Stents is pioneering an innovative stent design that delivers significant healthcare improvements to patients.")}
             <FormGroup style={styles.gridList}>
             <FormLabel style={leftstyle}>Who we are:</FormLabel>
