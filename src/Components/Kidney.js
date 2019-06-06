@@ -226,46 +226,19 @@ class Kidney extends Component {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
-        // overflow: 'hidden',
         paddingRight: "5%",
         paddingLeft: "5%",
         
 
       }
-      // const leftstyle = {
-      //   paddingTop:"55px",
-      //   float: "left",
-      //   width: "60%",
-
-       
-      // }
-      // const rightstyle = {
-      //   marginTop:"55px",
-      //   float: "right",
-      //   width: "40%",
-      //   border: "5px solid red",
-
-      // }
+     
 
       
       
       const title = {
         fontSize: "300%"
       }
-      // const oneImage= {
-        
-      //   width: "100%",
-      //   height: "100%",
-      //   border: "1px solid red"
-      // } 
-      // const over = {
-      //   zIndex: 1,
-        
-      //   height: 300,
-      //   width: 300
-       
-
-      // }
+     
       
     return (
         
